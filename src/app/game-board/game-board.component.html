@@ -1,0 +1,18 @@
+<p>
+  game-board works!
+  Height is {{height}} and Width is {{width}}! <br/>
+  Populated is {{percentPopulated}}%, Infected is {{percentInfected}}%!
+</p>
+
+<countdown #cd [config]="{leftTime: 3, demand: true}" (event)="handleTimerEvent($event)"></countdown>
+Cycle: {{cycle}}
+
+<table border="1" cellpadding="0" *ngIf="board">
+  <tbody>
+    <tr *ngFor='let row of board; let i = index'>
+      <td width='10' height='10' [style.background-color]='getCellColor(cell)' *ngFor='let cell of row'>
+  {{displayCell(cell)}}   
+      </td>
+    </tr>
+  </tbody>
+</table>
